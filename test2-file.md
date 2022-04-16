@@ -1,4 +1,4 @@
 # Title
 
-[link1](https://victorjwu.com/(wu)/morestuff) 
-[link2](victorwu.com/)
+![link1](victorwu.com/)
+[link2](victorwu.com2/)
