@@ -5,6 +5,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 
+// we could count to the last index but this breaks if there is normal text after
+// we have to count the number of open parenthesis and match it with the number of closed parenthesis
+// but what if there is a open and close parenthesis after 
 public class MarkdownParse {
 
     public static ArrayList<String> getLinks(String markdown) {
@@ -17,6 +20,7 @@ public class MarkdownParse {
             int openParen = markdown.indexOf("(", closeBracket);
             int closeParen = markdown.indexOf(")", openParen);
             toReturn.add(markdown.substring(openParen + 1, closeParen));
+            System.out.println(currentIndex);
             currentIndex = closeParen + 1;
         }
 
