@@ -22,10 +22,15 @@ public class MarkdownParse {
                 int closeParen = markdown.indexOf(")", openParen);
                 currentIndex = closeParen + 1;
             }
+            else if (markdown.indexOf("]") + 1 != markdown.indexOf("(")){
+                int closeBracket = markdown.indexOf("]", openBracket);
+                System.out.println("HELLO!");
+                currentIndex = closeBracket+1;
+            }
             else{
             int closeBracket = markdown.indexOf("]", openBracket);
-            int openParen = markdown.indexOf("(", closeBracket);
-            int closeParen = markdown.indexOf(")", openParen);
+             int openParen = markdown.indexOf("(", closeBracket);
+             int closeParen = markdown.indexOf(")", openParen);
             toReturn.add(markdown.substring(openParen + 1, closeParen));
             currentIndex = closeParen + 1;
             }
