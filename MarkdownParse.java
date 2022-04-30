@@ -15,7 +15,7 @@ public class MarkdownParse {
     // find the next [, then find the ], then find the (, then read link upto next )
     int currentIndex = 0;
 
-    if (!markdown.contains("[") && !markdown.contains("]") || !markdown.contains(".com")) {
+    if (!markdown.contains("[") && !markdown.contains("]") || (!markdown.contains(".com") && !markdown.contains(".net")))  {
         return toReturn;
     }
     while (currentIndex < markdown.lastIndexOf(")")) {
