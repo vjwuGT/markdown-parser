@@ -103,4 +103,14 @@ public class MarkdownParseTest {
     public void failingTest() throws IOException{
         assertEquals(3, 2+1);
     }
+    @Test
+    public void test9() throws IOException{
+        MarkdownParse mp = new MarkdownParse();
+        Path fileName = Path.of("test-file9.md");
+        String content = Files.readString(fileName);
+        ArrayList<String> links = mp.getLinks(content);
+        ArrayList<String> expected = new ArrayList<String>();
+        expected.add("www.victorwu.net");
+        assertEquals(expected, links);
 }
+} 
