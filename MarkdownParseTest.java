@@ -100,10 +100,6 @@ public class MarkdownParseTest {
         assertEquals(expected, links);
     }
     @Test
-    public void failingTest() throws IOException{
-        assertEquals(3, 2+1);
-    }
-    @Test
     public void test9() throws IOException{
         MarkdownParse mp = new MarkdownParse();
         Path fileName = Path.of("test-file9.md");
