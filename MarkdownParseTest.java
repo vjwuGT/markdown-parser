@@ -109,4 +109,34 @@ public class MarkdownParseTest {
         expected.add("www.victorwu.net");
         assertEquals(expected, links);
 }
+@Test
+public void testCodeBlockInLinks() throws IOException{
+    MarkdownParse mp = new MarkdownParse();
+    Path fileName = Path.of("snippet1.md");
+    String content = Files.readString(fileName);
+    ArrayList<String> links = mp.getLinks(content);
+    ArrayList<String> expected = new ArrayList<String>();
+    expected.add("`google.com, google.com, ucsd.edu");
+    assertEquals(expected, links);
+}
+@Test
+public void testNestedLinks() throws IOException{
+    MarkdownParse mp = new MarkdownParse();
+    Path fileName = Path.of("snippet2.md");
+    String content = Files.readString(fileName);
+    ArrayList<String> links = mp.getLinks(content);
+    ArrayList<String> expected = new ArrayList<String>();
+    expected.add("a.com, a.com(()), example.com");
+    assertEquals(expected, links);
+}
+@Test
+public void testLineBreaksandLength() throws IOException{
+    MarkdownParse mp = new MarkdownParse();
+    Path fileName = Path.of("snippet3.md");
+    String content = Files.readString(fileName);
+    ArrayList<String> links = mp.getLinks(content);
+    ArrayList<String> expected = new ArrayList<String>();
+    expected.add("https://sites.google.com/eng.ucsd.edu/cse-15l-spring-2022/schedule");
+    assertEquals(expected, links);
+}
 } 
