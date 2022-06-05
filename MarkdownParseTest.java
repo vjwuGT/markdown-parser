@@ -139,4 +139,15 @@ public void testLineBreaksandLength() throws IOException{
     expected.add("https://sites.google.com/eng.ucsd.edu/cse-15l-spring-2022/schedule");
     assertEquals(expected, links);
 }
-} 
+@Test
+
+public void testWHATISHAPPENING() throws IOException{
+    MarkdownParse mp = new MarkdownParse();
+    Path fileName = Path.of("snippet5.md");
+    String content = Files.readString(fileName);
+    ArrayList<String> links = mp.getLinks(content);
+    ArrayList<String> expected = new ArrayList<String>();
+    expected.add("/uri");
+    assertEquals(expected, links);
+}
+}
